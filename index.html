@@ -34,7 +34,34 @@
   .topbar nav a{color:rgba(250,250,246,.7);text-decoration:none;font-family:var(--alt);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;transition:color .2s;}
   .topbar nav a:hover{color:var(--citron);}
   .progress{height:3px;background:linear-gradient(90deg,var(--citron),var(--peach));width:0;transition:width .1s linear;}
-  @media(max-width:940px){.topbar nav{display:none;}}
+
+  /* hamburger */
+  .ham-btn{display:none;background:none;border:none;cursor:pointer;padding:6px;margin-left:auto;color:var(--paper);}
+  .ham-btn svg{width:22px;height:22px;display:block;}
+  .mob-menu{display:none;position:fixed;inset:0;z-index:200;background:rgba(41,41,41,.97);flex-direction:column;justify-content:center;align-items:center;gap:28px;}
+  .mob-menu.open{display:flex;}
+  .mob-menu a{color:var(--paper);text-decoration:none;font-family:var(--alt);font-weight:700;font-size:20px;letter-spacing:.08em;text-transform:uppercase;transition:color .2s;}
+  .mob-menu a:hover,.mob-menu a:active{color:var(--citron);}
+  .mob-close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;color:rgba(250,250,246,.6);font-size:32px;line-height:1;}
+
+  @media(max-width:940px){
+    .topbar .row{padding:10px 20px;}
+    .topbar nav{display:none;}
+    .ham-btn{display:flex;}
+  }
+
+  /* accordion creator */
+  .acc-header{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:14px 0;border-top:1px solid rgba(255,255,255,.12);margin-top:30px;user-select:none;}
+  .acc-header .acc-title{font-family:var(--alt);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--citron);}
+  .acc-header .acc-label{font-size:14px;color:rgba(250,250,246,.55);margin-left:10px;}
+  .acc-header .acc-arrow{width:20px;height:20px;color:var(--citron);transition:transform .3s;flex:none;}
+  .acc-header.open .acc-arrow{transform:rotate(180deg);}
+  .acc-body{overflow:hidden;max-height:0;transition:max-height .5s ease;}
+  .acc-body.open{max-height:9999px;}
+  @media(min-width:941px){
+    .acc-header{display:none;}
+    .acc-body{max-height:none;overflow:visible;}
+  }
 
   /* cover */
   .cover{position:relative;background:var(--ink);color:var(--paper);overflow:hidden;padding:92px 0 84px;}
@@ -282,8 +309,25 @@
       <a href="#sito">Sito</a>
       <a href="#creator">Creator</a>
     </nav>
+    <button class="ham-btn" id="hamBtn" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
   </div>
   <div class="progress" id="progress"></div>
+</div>
+
+<!-- ===== MOBILE MENU ===== -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" id="mobClose" aria-label="Chiudi">×</button>
+  <a href="#mandato" class="mob-link">Mandato</a>
+  <a href="#organica" class="mob-link">Organica</a>
+  <a href="#adv" class="mob-link">ADV</a>
+  <a href="#lead" class="mob-link">Lead</a>
+  <a href="#mail" class="mob-link">Email</a>
+  <a href="#sito" class="mob-link">Sito</a>
+  <a href="#creator" class="mob-link">Creator</a>
 </div>
 
 <!-- ===== COVER ===== -->
@@ -864,12 +908,18 @@
       <div class="galblock">
         <p class="gm">Max Mariola</p>
         <p class="gd">141.000 visualizzazioni · 18.200 utenti unici · 930 interazioni · 2.885 tap "indietro"</p>
-        <div class="slides-wrap">
-          <img class="slide" src="assets/creator-report/page-05.png" alt="Max Mariola — KPI">
-          <img class="slide" src="assets/creator-report/page-06.png" alt="Max Mariola — Insight Storie 1">
-          <img class="slide" src="assets/creator-report/page-07.png" alt="Max Mariola — Insight Storie 2">
-          <img class="slide" src="assets/creator-report/page-08.png" alt="Max Mariola — Insight Storie 3">
-          <img class="slide" src="assets/creator-report/page-09.png" alt="Max Mariola — Insight Storie 4">
+        <button class="acc-header" aria-expanded="false">
+          <span><span class="acc-title">Insight</span><span class="acc-label">5 slide — KPI + storie</span></span>
+          <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body">
+          <div class="slides-wrap">
+            <img class="slide" src="assets/creator-report/page-05.png" alt="Max Mariola — KPI">
+            <img class="slide" src="assets/creator-report/page-06.png" alt="Max Mariola — Insight Storie 1">
+            <img class="slide" src="assets/creator-report/page-07.png" alt="Max Mariola — Insight Storie 2">
+            <img class="slide" src="assets/creator-report/page-08.png" alt="Max Mariola — Insight Storie 3">
+            <img class="slide" src="assets/creator-report/page-09.png" alt="Max Mariola — Insight Storie 4">
+          </div>
         </div>
       </div>
 
@@ -877,11 +927,17 @@
       <div class="galblock">
         <p class="gm">Laura Masi</p>
         <p class="gd">59.800 visualizzazioni · 18.100 utenti unici · 310 interazioni · Reel: 95% non-follower</p>
-        <div class="slides-wrap">
-          <img class="slide" src="assets/creator-report/page-10.png" alt="Laura Masi — KPI">
-          <img class="slide" src="assets/creator-report/page-11.png" alt="Laura Masi — Insight Storie 1">
-          <img class="slide" src="assets/creator-report/page-12.png" alt="Laura Masi — Insight Storie 2">
-          <img class="slide" src="assets/creator-report/page-13.png" alt="Laura Masi — Insight Reel">
+        <button class="acc-header" aria-expanded="false">
+          <span><span class="acc-title">Insight</span><span class="acc-label">4 slide — KPI + storie + reel</span></span>
+          <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body">
+          <div class="slides-wrap">
+            <img class="slide" src="assets/creator-report/page-10.png" alt="Laura Masi — KPI">
+            <img class="slide" src="assets/creator-report/page-11.png" alt="Laura Masi — Insight Storie 1">
+            <img class="slide" src="assets/creator-report/page-12.png" alt="Laura Masi — Insight Storie 2">
+            <img class="slide" src="assets/creator-report/page-13.png" alt="Laura Masi — Insight Reel">
+          </div>
         </div>
       </div>
 
@@ -889,15 +945,21 @@
       <div class="galblock">
         <p class="gm">Elettra Lazzerini</p>
         <p class="gd">29.700 visualizzazioni · 9.000 utenti unici · 480 interazioni · 87% audience 25–54 anni</p>
-        <div class="slides-wrap">
-          <img class="slide" src="assets/creator-report/page-14.png" alt="Elettra Lazzerini — KPI">
-          <img class="slide" src="assets/creator-report/page-15.png" alt="Elettra Lazzerini — Insight Storie 1">
-          <img class="slide" src="assets/creator-report/page-16.png" alt="Elettra Lazzerini — Insight Storie 2">
-          <img class="slide" src="assets/creator-report/page-17.png" alt="Elettra Lazzerini — Insight Storie 3">
-          <img class="slide" src="assets/creator-report/page-18.png" alt="Elettra Lazzerini — Insight Storie 4">
-          <img class="slide" src="assets/creator-report/page-19.png" alt="Elettra Lazzerini — Insight Storie 5">
-          <img class="slide" src="assets/creator-report/page-20.png" alt="Elettra Lazzerini — Insight Storie 6">
-          <img class="slide" src="assets/creator-report/page-21.png" alt="Elettra Lazzerini — Insight Reel">
+        <button class="acc-header" aria-expanded="false">
+          <span><span class="acc-title">Insight</span><span class="acc-label">8 slide — KPI + storie + reel</span></span>
+          <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body">
+          <div class="slides-wrap">
+            <img class="slide" src="assets/creator-report/page-14.png" alt="Elettra Lazzerini — KPI">
+            <img class="slide" src="assets/creator-report/page-15.png" alt="Elettra Lazzerini — Insight Storie 1">
+            <img class="slide" src="assets/creator-report/page-16.png" alt="Elettra Lazzerini — Insight Storie 2">
+            <img class="slide" src="assets/creator-report/page-17.png" alt="Elettra Lazzerini — Insight Storie 3">
+            <img class="slide" src="assets/creator-report/page-18.png" alt="Elettra Lazzerini — Insight Storie 4">
+            <img class="slide" src="assets/creator-report/page-19.png" alt="Elettra Lazzerini — Insight Storie 5">
+            <img class="slide" src="assets/creator-report/page-20.png" alt="Elettra Lazzerini — Insight Storie 6">
+            <img class="slide" src="assets/creator-report/page-21.png" alt="Elettra Lazzerini — Insight Reel">
+          </div>
         </div>
       </div>
 
@@ -905,10 +967,16 @@
       <div class="galblock">
         <p class="gm">Matteo Delvai</p>
         <p class="gd">9.500 visualizzazioni · 3.400 utenti unici · 130 interazioni · skip rate 62,9%</p>
-        <div class="slides-wrap">
-          <img class="slide" src="assets/creator-report/page-22.png" alt="Matteo Delvai — KPI">
-          <img class="slide" src="assets/creator-report/page-23.png" alt="Matteo Delvai — Insight Storie">
-          <img class="slide" src="assets/creator-report/page-24.png" alt="Matteo Delvai — Insight Reel">
+        <button class="acc-header" aria-expanded="false">
+          <span><span class="acc-title">Insight</span><span class="acc-label">3 slide — KPI + storie + reel</span></span>
+          <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body">
+          <div class="slides-wrap">
+            <img class="slide" src="assets/creator-report/page-22.png" alt="Matteo Delvai — KPI">
+            <img class="slide" src="assets/creator-report/page-23.png" alt="Matteo Delvai — Insight Storie">
+            <img class="slide" src="assets/creator-report/page-24.png" alt="Matteo Delvai — Insight Reel">
+          </div>
         </div>
       </div>
 
@@ -916,8 +984,14 @@
       <div class="galblock">
         <p class="gm">Paola Di Giambattista</p>
         <p class="gd">52 interazioni · presidio istituzionale su LinkedIn</p>
-        <div class="slides-wrap">
-          <img class="slide" src="assets/creator-report/page-25.png" alt="Paola Di Giambattista — KPI LinkedIn">
+        <button class="acc-header" aria-expanded="false">
+          <span><span class="acc-title">Insight</span><span class="acc-label">1 slide — KPI LinkedIn</span></span>
+          <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body">
+          <div class="slides-wrap">
+            <img class="slide" src="assets/creator-report/page-25.png" alt="Paola Di Giambattista — KPI LinkedIn">
+          </div>
         </div>
       </div>
     </div>
@@ -965,16 +1039,42 @@
 </footer>
 
 <script>
+  // Progress bar
   const pr = document.getElementById('progress');
   const onScroll = () => {
     const h = document.documentElement.scrollHeight - window.innerHeight;
     pr.style.width = (h>0 ? (window.scrollY/h*100) : 0) + '%';
   };
   window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // Reveal on scroll
   const io = new IntersectionObserver((es)=>{
     es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
   }, {threshold:.08});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // Hamburger menu
+  const hamBtn = document.getElementById('hamBtn');
+  const mobMenu = document.getElementById('mobMenu');
+  const mobClose = document.getElementById('mobClose');
+  if(hamBtn && mobMenu){
+    hamBtn.addEventListener('click', () => mobMenu.classList.add('open'));
+    mobClose.addEventListener('click', () => mobMenu.classList.remove('open'));
+    mobMenu.querySelectorAll('.mob-link').forEach(a => {
+      a.addEventListener('click', () => mobMenu.classList.remove('open'));
+    });
+  }
+
+  // Accordion (mobile only — desktop handled via CSS)
+  document.querySelectorAll('.acc-header').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const body = btn.nextElementSibling;
+      const isOpen = btn.classList.contains('open');
+      btn.classList.toggle('open', !isOpen);
+      body.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
 </script>
 </body>
 </html>
