@@ -59,8 +59,12 @@
   .acc-body{overflow:hidden;max-height:0;transition:max-height .5s ease;}
   .acc-body.open{max-height:99999px;}
   @media(min-width:941px){
-    .acc-header{display:none;}
-    .acc-body{max-height:99999px !important;overflow:visible;}
+    .acc-header{display:none !important;}
+    .acc-body{
+      max-height:none !important;
+      overflow:visible !important;
+      transition:none !important;
+    }
   }
 
   /* cover */
