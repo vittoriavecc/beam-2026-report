@@ -167,9 +167,16 @@
   .src-note{font-family:var(--alt);font-size:12px;letter-spacing:.05em;color:var(--body);margin:18px 0 0;}
   @media(max-width:760px){.shots{grid-template-columns:1fr 1fr;}}
 
-  /* creator report slides */
+  /* creator report slides (legacy — kept for fallback) */
   .slide{width:100%;display:block;border-radius:12px;margin:6px 0;border:1px solid rgba(255,255,255,.10);}
   .slides-wrap{display:flex;flex-direction:column;gap:6px;margin-top:10px;}
+
+  /* individual insight grid */
+  .insight-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-top:14px;}
+  .insight-img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid rgba(255,255,255,.12);}
+  @media(max-width:600px){
+    .insight-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
+  }
 
   /* objective cards (ADV) */
   .obj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:8px;}
@@ -909,16 +916,30 @@
         <p class="gm">Max Mariola</p>
         <p class="gd">141.000 visualizzazioni · 18.200 utenti unici · 930 interazioni · 2.885 tap "indietro"</p>
         <button class="acc-header" aria-expanded="false">
-          <span><span class="acc-title">Insight</span><span class="acc-label">5 slide — KPI + storie</span></span>
+          <span><span class="acc-title">Insight storie</span><span class="acc-label">19 screenshot</span></span>
           <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="acc-body">
-          <div class="slides-wrap">
-            <img class="slide" src="assets/creator-report/page-05.png" alt="Max Mariola — KPI">
-            <img class="slide" src="assets/creator-report/page-06.png" alt="Max Mariola — Insight Storie 1">
-            <img class="slide" src="assets/creator-report/page-07.png" alt="Max Mariola — Insight Storie 2">
-            <img class="slide" src="assets/creator-report/page-08.png" alt="Max Mariola — Insight Storie 3">
-            <img class="slide" src="assets/creator-report/page-09.png" alt="Max Mariola — Insight Storie 4">
+          <div class="insight-grid">
+          <img class="insight-img" src="assets/insights/max/01.png" alt="max insight 1" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/02.png" alt="max insight 2" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/03.png" alt="max insight 3" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/04.png" alt="max insight 4" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/05.png" alt="max insight 5" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/06.png" alt="max insight 6" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/07.png" alt="max insight 7" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/08.png" alt="max insight 8" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/09.png" alt="max insight 9" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/10.png" alt="max insight 10" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/11.png" alt="max insight 11" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/12.png" alt="max insight 12" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/13.png" alt="max insight 13" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/14.png" alt="max insight 14" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/15.png" alt="max insight 15" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/16.png" alt="max insight 16" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/17.png" alt="max insight 17" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/18.png" alt="max insight 18" loading="lazy">
+          <img class="insight-img" src="assets/insights/max/19.png" alt="max insight 19" loading="lazy">
           </div>
         </div>
       </div>
@@ -928,15 +949,22 @@
         <p class="gm">Laura Masi</p>
         <p class="gd">59.800 visualizzazioni · 18.100 utenti unici · 310 interazioni · Reel: 95% non-follower</p>
         <button class="acc-header" aria-expanded="false">
-          <span><span class="acc-title">Insight</span><span class="acc-label">4 slide — KPI + storie + reel</span></span>
+          <span><span class="acc-title">Insight storie + reel</span><span class="acc-label">11 screenshot</span></span>
           <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="acc-body">
-          <div class="slides-wrap">
-            <img class="slide" src="assets/creator-report/page-10.png" alt="Laura Masi — KPI">
-            <img class="slide" src="assets/creator-report/page-11.png" alt="Laura Masi — Insight Storie 1">
-            <img class="slide" src="assets/creator-report/page-12.png" alt="Laura Masi — Insight Storie 2">
-            <img class="slide" src="assets/creator-report/page-13.png" alt="Laura Masi — Insight Reel">
+          <div class="insight-grid">
+          <img class="insight-img" src="assets/insights/laura/01.png" alt="laura insight 1" loading="lazy">
+          <img class="insight-img" src="assets/insights/laura/02.png" alt="laura insight 2" loading="lazy">
+          <img class="insight-img" src="assets/insights/laura/03.png" alt="laura insight 3" loading="lazy">
+          <img class="insight-img" src="assets/insights/laura/04.png" alt="laura insight 4" loading="lazy">
+          <img class="insight-img" src="assets/insights/laura/05.png" alt="laura insight 5" loading="lazy">
+          <img class="insight-img" src="assets/insights/laura/06.png" alt="laura insight 6" loading="lazy">
+          <img class="insight-img" src="assets/insights/laura/07.png" alt="laura insight 7" loading="lazy">
+          <img class="insight-img" src="assets/insights/laura/08.png" alt="laura insight 8" loading="lazy">
+          <img class="insight-img" src="assets/insights/laura/09.png" alt="laura insight 9" loading="lazy">
+          <img class="insight-img" src="assets/insights/laura/10.png" alt="laura insight 10" loading="lazy">
+          <img class="insight-img" src="assets/insights/laura/11.png" alt="laura insight 11" loading="lazy">
           </div>
         </div>
       </div>
@@ -946,19 +974,36 @@
         <p class="gm">Elettra Lazzerini</p>
         <p class="gd">29.700 visualizzazioni · 9.000 utenti unici · 480 interazioni · 87% audience 25–54 anni</p>
         <button class="acc-header" aria-expanded="false">
-          <span><span class="acc-title">Insight</span><span class="acc-label">8 slide — KPI + storie + reel</span></span>
+          <span><span class="acc-title">Insight storie + reel</span><span class="acc-label">25 screenshot</span></span>
           <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="acc-body">
-          <div class="slides-wrap">
-            <img class="slide" src="assets/creator-report/page-14.png" alt="Elettra Lazzerini — KPI">
-            <img class="slide" src="assets/creator-report/page-15.png" alt="Elettra Lazzerini — Insight Storie 1">
-            <img class="slide" src="assets/creator-report/page-16.png" alt="Elettra Lazzerini — Insight Storie 2">
-            <img class="slide" src="assets/creator-report/page-17.png" alt="Elettra Lazzerini — Insight Storie 3">
-            <img class="slide" src="assets/creator-report/page-18.png" alt="Elettra Lazzerini — Insight Storie 4">
-            <img class="slide" src="assets/creator-report/page-19.png" alt="Elettra Lazzerini — Insight Storie 5">
-            <img class="slide" src="assets/creator-report/page-20.png" alt="Elettra Lazzerini — Insight Storie 6">
-            <img class="slide" src="assets/creator-report/page-21.png" alt="Elettra Lazzerini — Insight Reel">
+          <div class="insight-grid">
+          <img class="insight-img" src="assets/insights/elettra/01.png" alt="elettra insight 1" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/02.png" alt="elettra insight 2" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/03.png" alt="elettra insight 3" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/04.png" alt="elettra insight 4" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/05.png" alt="elettra insight 5" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/06.png" alt="elettra insight 6" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/07.png" alt="elettra insight 7" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/08.png" alt="elettra insight 8" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/09.png" alt="elettra insight 9" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/10.png" alt="elettra insight 10" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/11.png" alt="elettra insight 11" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/12.png" alt="elettra insight 12" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/13.png" alt="elettra insight 13" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/14.png" alt="elettra insight 14" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/15.png" alt="elettra insight 15" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/16.png" alt="elettra insight 16" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/17.png" alt="elettra insight 17" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/18.png" alt="elettra insight 18" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/19.png" alt="elettra insight 19" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/20.png" alt="elettra insight 20" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/21.png" alt="elettra insight 21" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/22.png" alt="elettra insight 22" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/23.png" alt="elettra insight 23" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/24.png" alt="elettra insight 24" loading="lazy">
+          <img class="insight-img" src="assets/insights/elettra/25.png" alt="elettra insight 25" loading="lazy">
           </div>
         </div>
       </div>
@@ -968,14 +1013,16 @@
         <p class="gm">Matteo Delvai</p>
         <p class="gd">9.500 visualizzazioni · 3.400 utenti unici · 130 interazioni · skip rate 62,9%</p>
         <button class="acc-header" aria-expanded="false">
-          <span><span class="acc-title">Insight</span><span class="acc-label">3 slide — KPI + storie + reel</span></span>
+          <span><span class="acc-title">Insight storie + reel</span><span class="acc-label">5 screenshot</span></span>
           <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="acc-body">
-          <div class="slides-wrap">
-            <img class="slide" src="assets/creator-report/page-22.png" alt="Matteo Delvai — KPI">
-            <img class="slide" src="assets/creator-report/page-23.png" alt="Matteo Delvai — Insight Storie">
-            <img class="slide" src="assets/creator-report/page-24.png" alt="Matteo Delvai — Insight Reel">
+          <div class="insight-grid">
+          <img class="insight-img" src="assets/insights/matteo/01.png" alt="matteo insight 1" loading="lazy">
+          <img class="insight-img" src="assets/insights/matteo/02.png" alt="matteo insight 2" loading="lazy">
+          <img class="insight-img" src="assets/insights/matteo/03.png" alt="matteo insight 3" loading="lazy">
+          <img class="insight-img" src="assets/insights/matteo/04.png" alt="matteo insight 4" loading="lazy">
+          <img class="insight-img" src="assets/insights/matteo/05.png" alt="matteo insight 5" loading="lazy">
           </div>
         </div>
       </div>
@@ -985,7 +1032,7 @@
         <p class="gm">Paola Di Giambattista</p>
         <p class="gd">52 interazioni · presidio istituzionale su LinkedIn</p>
         <button class="acc-header" aria-expanded="false">
-          <span><span class="acc-title">Insight</span><span class="acc-label">1 slide — KPI LinkedIn</span></span>
+          <span><span class="acc-title">KPI LinkedIn</span><span class="acc-label">1 slide</span></span>
           <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="acc-body">
