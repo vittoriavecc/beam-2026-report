@@ -1,0 +1,6 @@
+id_list,id_message,subject,tags,datetime_first_sending,datetime_last_sending,sendouts,recipients,sent,bounce,successful_deliveries_rate,opens,total_opens,opens_without_images,open_rate,clicks,total_clicks,click_rate,click_to_open_rate,unsubscribed,unsubscription_rate,abuse,share,published,archived,opens_privacy,open_privacy_rate
+19,4021,BEAM 2026 si è concluso. Adesso inizia la parte vera.,[],2026-05-21 17:42:13.27 +0000 UTC,2026-05-21 17:42:13.27 +0000 UTC,1,76,76,0,100.00,48,94,6,63.16,13,44,17.11,27.08,0,0.00,0,0,FALSE,FALSE,28,36.84
+19,4017,Grazie per questo BEAM 2026 ✨,[],2026-05-20 15:39:18.553 +0000 UTC,2026-05-20 15:39:18.553 +0000 UTC,1,76,76,0,100.00,53,128,7,69.74,16,50,21.05,30.19,4,5.26,0,0,FALSE,FALSE,26,34.21
+19,3933,Cosa dicono di BEAM,[],2026-01-14 14:11:15.117 +0000 UTC,2026-02-03 14:00:19.16 +0000 UTC,2,407,390,17,95.82,219,385,6,56.15,14,18,3.59,6.39,6,1.54,0,0,FALSE,FALSE,90,23.08
+19,3910,BEAM 2026: biglietti disponibili al miglior prezzo!,[],2026-01-04 14:00:05.227 +0000 UTC,2026-01-04 14:00:05.227 +0000 UTC,1,83,80,3,96.39,39,65,0,48.75,1,1,1.25,2.56,0,0.00,0,0,FALSE,FALSE,23,28.75
+19,3906,BEAM 2026 sta prendendo forma,[],2025-12-16 12:01:20.213 +0000 UTC,2025-12-16 12:01:20.213 +0000 UTC,1,85,82,3,96.47,47,76,3,57.32,8,9,9.76,17.02,0,0.00,0,0,FALSE,FALSE,23,28.05

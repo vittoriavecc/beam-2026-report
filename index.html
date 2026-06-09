@@ -1,0 +1,959 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BEAM 2026 — Report Comunicazione · Marketers Accelerator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#292929; --charcoal:#3A3533; --slate:#54595F; --body:#7A7A7A;
+    --paper:#FAFAF6; --sand:#F6F5E3; --parchment:#EEEDCD;
+    --citron:#FFFCAA; --olive:#797629; --peach:#FFBC7D;
+    --steel:#708EA9; --active:#2F84CF; --deep:#0B4E90;
+    --maxw:1180px;
+    --serif:"Source Sans 3","Source Sans Pro",sans-serif;
+    --alt:"Montserrat",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px;}
+  a{color:var(--active);text-decoration:none;}
+  a:hover{color:var(--deep);}
+  .eyebrow{font-family:var(--alt);font-weight:600;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);margin:0 0 14px;}
+
+  /* sticky bar */
+  .topbar{position:sticky;top:0;z-index:50;background:var(--ink);color:var(--paper);}
+  .topbar .row{max-width:var(--maxw);margin:0 auto;padding:11px 40px;display:flex;align-items:center;gap:16px;}
+  .topbar img{height:24px;width:auto;}
+  .topbar .ttl{font-family:var(--alt);font-weight:600;font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:rgba(250,250,246,.62);}
+  .topbar nav{margin-left:auto;display:flex;gap:18px;}
+  .topbar nav a{color:rgba(250,250,246,.7);text-decoration:none;font-family:var(--alt);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;transition:color .2s;}
+  .topbar nav a:hover{color:var(--citron);}
+  .progress{height:3px;background:linear-gradient(90deg,var(--citron),var(--peach));width:0;transition:width .1s linear;}
+  @media(max-width:940px){.topbar nav{display:none;}}
+
+  /* cover */
+  .cover{position:relative;background:var(--ink);color:var(--paper);overflow:hidden;padding:92px 0 84px;}
+  .cover .bgimg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.16;}
+  .cover .bgimg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(41,41,41,.72),rgba(41,41,41,.96));}
+  .cover .wrap{position:relative;}
+  .cover .ma{height:50px;width:auto;margin-bottom:54px;}
+  .cover .kick{font-family:var(--alt);font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:var(--citron);margin:0 0 22px;}
+  .cover h1{font-weight:600;font-size:clamp(38px,6.6vw,86px);line-height:.98;letter-spacing:-.02em;margin:0 0 30px;max-width:19ch;}
+  .cover .beam{height:50px;width:auto;margin:0 0 30px;}
+  .beamwordmark{font-family:var(--alt);font-weight:700;letter-spacing:.01em;background:linear-gradient(95deg,#FFFCAA 0%,#FFBC7D 28%,#2F84CF 68%,#797629 100%);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block;}
+  .cover .cover-wm{font-size:clamp(42px,7vw,70px);margin:0 0 26px;}
+  .cover .meta{display:flex;flex-wrap:wrap;gap:10px 12px;}
+  .cover .meta span{font-family:var(--alt);font-size:13px;letter-spacing:.05em;border:1px solid rgba(250,250,246,.25);padding:8px 16px;border-radius:999px;color:rgba(250,250,246,.85);}
+
+  /* section scaffold */
+  section{padding:90px 0;}
+  .sand{background:var(--sand);}
+  .dark{background:var(--ink);color:var(--paper);}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:44px;}
+  .sec-num{font-family:var(--alt);font-weight:700;font-size:14px;letter-spacing:.18em;color:var(--olive);white-space:nowrap;padding-top:8px;}
+  .dark .sec-num{color:var(--citron);}
+  .sec-title{font-weight:600;font-size:clamp(30px,4.2vw,54px);line-height:1.02;margin:0;letter-spacing:-.01em;}
+  .sec-sub{color:var(--body);max-width:66ch;margin:14px 0 0;font-size:18px;}
+  .dark .sec-sub{color:rgba(250,250,246,.66);}
+
+  /* areas grid */
+  .areas{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+  .area{background:var(--paper);border:1px solid rgba(41,41,41,.10);border-radius:14px;padding:24px 20px;display:flex;flex-direction:column;gap:13px;min-height:172px;}
+  .sand .area{background:#fff;}
+  .area .ic{width:30px;height:30px;color:var(--olive);}
+  .area .ic svg{width:30px;height:30px;}
+  .area h3{font-size:18px;font-weight:600;margin:0;line-height:1.2;}
+  .area p{font-size:13.5px;color:var(--body);margin:0;line-height:1.45;}
+  @media(max-width:900px){.areas{grid-template-columns:repeat(2,1fr);}}
+
+  /* KPI */
+  .kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+  .kpi{padding:6px 4px;}
+  .kpi .n{font-weight:600;font-size:clamp(36px,4.6vw,60px);line-height:.9;letter-spacing:-.02em;color:var(--ink);}
+  .kpi .n .ph{color:var(--parchment);}
+  .kpi .u{font-size:.46em;color:var(--olive);font-weight:600;margin-left:4px;}
+  .kpi .l{font-size:14px;color:var(--slate);margin-top:10px;max-width:24ch;}
+  .kpi .d{display:inline-flex;align-items:center;gap:3px;font-family:var(--alt);font-size:12px;font-weight:600;color:#2e8b57;margin-top:8px;letter-spacing:.02em;}
+  .kpi .d svg{width:11px;height:11px;}
+  .dark .kpi .n,.panel .kpi .n{color:var(--paper);}
+  .dark .kpi .l,.panel .kpi .l{color:rgba(250,250,246,.62);}
+  .dark .kpi .d,.panel .kpi .d{color:#7fd6a0;}
+  .dark .kpi .u,.panel .kpi .u{color:var(--citron);}
+  @media(max-width:760px){.kpi-strip{grid-template-columns:repeat(2,1fr);gap:26px 8px;}}
+
+  /* workstream */
+  .ws{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start;}
+  .ws .lead-p{font-size:20px;color:var(--charcoal);margin:0 0 22px;line-height:1.5;}
+  .ws ul.did{list-style:none;padding:0;margin:0;}
+  .ws ul.did li{position:relative;padding:0 0 0 26px;margin-bottom:12px;color:var(--slate);font-size:16px;}
+  .ws ul.did li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:50%;background:var(--olive);}
+  .ws-tag{font-family:var(--alt);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--olive);margin:0 0 10px;}
+  .ws h2{font-weight:600;font-size:clamp(28px,3.5vw,44px);line-height:1.03;margin:0 0 18px;letter-spacing:-.01em;}
+  .panel{background:var(--ink);color:var(--paper);border-radius:16px;padding:38px 34px;}
+  .panel h4,.blk-h{font-family:var(--alt);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--citron);margin:0 0 24px;font-weight:600;}
+  .panel .kpi-strip{grid-template-columns:repeat(2,1fr);gap:30px 18px;}
+  @media(max-width:900px){.ws{grid-template-columns:1fr;gap:30px;}}
+  .ws .media{border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:var(--charcoal);}
+  .ws .media img{width:100%;height:100%;object-fit:cover;display:block;}
+
+  /* callout */
+  .callout{background:var(--parchment);border-left:3px solid var(--olive);border-radius:0 10px 10px 0;padding:16px 22px;margin-top:30px;font-size:15px;color:var(--charcoal);}
+  .callout b{color:var(--ink);}
+  .callout.warn{background:#fff6d6;border-color:#caa53a;}
+  .dark .callout{background:rgba(255,252,170,.1);border-color:var(--citron);color:rgba(250,250,246,.82);}
+  .dark .callout b{color:#fff;}
+
+  /* top content / data table */
+  .toplist{margin-top:54px;}
+  .blk-h.olive{color:var(--olive);}
+  .trow{display:grid;grid-template-columns:auto 1fr auto auto auto;gap:22px;align-items:center;padding:15px 0;border-bottom:1px solid rgba(41,41,41,.12);}
+  .trow:first-of-type{border-top:1px solid rgba(41,41,41,.12);}
+  .trow .rk{font-weight:600;font-size:20px;color:var(--olive);width:24px;}
+  .trow .ti{min-width:0;}
+  .trow .ti .ds{font-size:15px;color:var(--ink);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .trow .ti .mt{font-family:var(--alt);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--body);margin:3px 0 0;}
+  .trow .mv{text-align:right;}
+  .trow .mv .v{font-weight:600;font-size:18px;color:var(--ink);}
+  .trow .mv .k{font-size:11px;font-family:var(--alt);letter-spacing:.06em;text-transform:uppercase;color:var(--body);}
+  @media(max-width:760px){.trow{grid-template-columns:auto 1fr auto;}.trow .mv.hide{display:none;}}
+
+  /* generic data table */
+  .dtable{width:100%;border-collapse:collapse;margin-top:8px;font-size:15px;}
+  .dtable th{font-family:var(--alt);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--olive);text-align:right;padding:0 0 12px;border-bottom:1.5px solid rgba(41,41,41,.18);font-weight:700;}
+  .dtable th:first-child,.dtable td:first-child{text-align:left;}
+  .dtable td{padding:12px 0;border-bottom:1px solid rgba(41,41,41,.1);text-align:right;color:var(--slate);}
+  .dtable td:first-child{color:var(--ink);}
+  .dtable td b{color:var(--ink);font-weight:600;}
+  .dtable tr.tot td{border-top:2px solid var(--ink);border-bottom:none;color:var(--ink);font-weight:600;padding-top:14px;}
+  .dtable .sub{font-family:var(--alt);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--body);}
+  .dtable td.pos{color:#2e8b57;font-weight:600;}
+
+  /* screenshot gallery */
+  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px;}
+  .shots figure{margin:0;background:#fff;border:1px solid rgba(41,41,41,.10);border-radius:12px;padding:10px;}
+  .shots img{width:100%;height:auto;display:block;border-radius:7px;}
+  .src-note{font-family:var(--alt);font-size:12px;letter-spacing:.05em;color:var(--body);margin:18px 0 0;}
+  @media(max-width:760px){.shots{grid-template-columns:1fr 1fr;}}
+
+  /* objective cards (ADV) */
+  .obj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:8px;}
+  .oc{background:var(--paper);border:1px solid rgba(41,41,41,.10);border-radius:16px;padding:30px;}
+  .sand .oc{background:#fff;}
+  .oc.live{border-color:var(--olive);box-shadow:0 0 0 1px var(--olive);}
+  .oc .h{display:flex;align-items:center;gap:13px;margin-bottom:20px;}
+  .oc .h .ico{width:40px;height:40px;border-radius:10px;background:var(--ink);color:var(--citron);display:flex;align-items:center;justify-content:center;flex:none;}
+  .oc .h .ico svg{width:21px;height:21px;}
+  .oc .h .tt{font-weight:600;font-size:19px;line-height:1.1;margin:0;}
+  .oc .h .tt small{display:block;font-family:var(--alt);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);margin-bottom:3px;font-weight:700;}
+  .oc .kpi-strip{grid-template-columns:1fr 1fr;gap:22px 16px;}
+  .oc .kpi .n{font-size:clamp(28px,3.2vw,40px);}
+  .oc .badge{font-family:var(--alt);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:4px 9px;border-radius:6px;margin-left:auto;}
+  .oc .badge.ok{background:#dff3e6;color:#1f7a44;}
+  .oc .badge.wait{background:#fdeccc;color:#9a6b16;}
+  @media(max-width:900px){.obj-grid{grid-template-columns:1fr;}}
+
+  /* channel bars */
+  .bars{margin-top:8px;}
+  .bar{display:grid;grid-template-columns:180px 1fr auto;gap:18px;align-items:center;margin-bottom:14px;}
+  .bar .bl{font-size:15px;color:var(--ink);}
+  .bar .bt{height:14px;border-radius:7px;background:var(--ink);}
+  .bar .bv{font-weight:600;font-size:15px;color:var(--ink);width:90px;text-align:right;}
+  .bar .bv small{font-family:var(--alt);font-weight:500;color:var(--body);font-size:12px;}
+  @media(max-width:760px){.bar{grid-template-columns:120px 1fr auto;gap:10px;}}
+
+  /* creator cards */
+  .cgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:8px;}
+  .cc{background:var(--paper);border:1px solid rgba(41,41,41,.1);border-radius:14px;padding:22px 20px;display:flex;flex-direction:column;gap:8px;}
+  .sand .cc{background:#fff;}
+  .cc .cn{font-weight:600;font-size:17px;margin:0;line-height:1.1;}
+  .cc .cf{font-weight:600;font-size:26px;color:var(--olive);letter-spacing:-.02em;margin:2px 0 0;}
+  .cc .cf small{font-size:13px;color:var(--body);font-family:var(--alt);font-weight:500;display:block;margin-top:1px;}
+  .cc .cmeta{font-family:var(--alt);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--body);margin:0;}
+  .cc .obj{font-family:var(--alt);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:6px;align-self:flex-start;margin-top:2px;}
+  .cc .obj.amp{background:var(--citron);color:var(--ink);}
+  .cc .obj.eco{background:var(--parchment);color:var(--olive);}
+  .cc .role{font-size:13px;color:var(--slate);margin:6px 0 0;line-height:1.4;}
+  .cc .links{margin-top:auto;padding-top:10px;display:flex;gap:12px;}
+  .cc .links a{font-family:var(--alt);font-size:11px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;}
+  @media(max-width:980px){.cgrid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.cgrid{grid-template-columns:1fr;}}
+
+  .pdf-link{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);font-family:var(--alt);font-weight:600;font-size:13px;letter-spacing:.04em;padding:13px 22px;border-radius:999px;margin-top:30px;}
+  .pdf-link:hover{background:var(--charcoal);color:var(--paper);}
+  .pdf-link svg{width:18px;height:18px;}
+
+  /* lead quality chips */
+  .qgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px;}
+  .qcol h5{font-family:var(--alt);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--olive);margin:0 0 14px;font-weight:700;}
+  .qcol .chip{background:var(--paper);border:1px solid rgba(41,41,41,.12);border-radius:9px;padding:9px 13px;font-size:14px;color:var(--ink);margin-bottom:8px;}
+  .sand .qcol .chip{background:#fff;}
+  @media(max-width:880px){.qgrid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.qgrid{grid-template-columns:1fr;}}
+
+  /* creator galleries */
+  .gal{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;}
+  .gal img{height:228px;width:auto;border-radius:9px;border:1px solid rgba(255,255,255,.16);background:#fff;}
+  .galblock .ty{font-family:var(--alt);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff;font-weight:700;margin:18px 0 0;padding-top:10px;border-top:1px solid rgba(255,255,255,.12);}
+  .galblock{margin-bottom:30px;}
+  .galblock .gm{font-family:var(--alt);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--citron);font-weight:700;margin:0;}
+  .galblock .gd{font-size:14px;color:rgba(250,250,246,.6);margin:3px 0 0;}
+  .focus{list-style:none;padding:0;margin:18px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;}
+  .focus li{color:rgba(250,250,246,.78);font-size:15px;padding-left:16px;position:relative;line-height:1.45;}
+  .focus li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--citron);}
+  .focus li b{color:#fff;}
+  .feature-photo{width:100%;max-height:300px;object-fit:cover;border-radius:14px;display:block;}
+  .concl{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:22px;}
+  .concl div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:22px 24px;font-size:15px;color:rgba(250,250,246,.8);line-height:1.5;}
+  .concl div b{color:var(--citron);display:block;font-family:var(--alt);font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+  @media(max-width:760px){.focus,.concl{grid-template-columns:1fr;}.gal img{height:172px;}}
+
+  /* linkedin */
+  .li-charts{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .li-card{background:#fff;border:1px solid rgba(41,41,41,.1);border-radius:14px;padding:16px 16px 12px;}
+  .li-card img{width:100%;display:block;border-radius:8px;}
+  .li-card .cap{font-family:var(--alt);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--olive);margin:0 0 12px;font-weight:700;}
+  @media(max-width:820px){.li-charts{grid-template-columns:1fr;}}
+  /* creator face */
+  .cc .face{width:62px;height:62px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(255,255,255,.22);}
+  .cc .face.ini{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.09);color:var(--citron);font-family:var(--alt);font-weight:700;font-size:20px;}
+
+  /* timeline */
+  .tl{position:relative;margin-top:10px;}
+  .tl::before{content:"";position:absolute;left:13px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--olive),var(--parchment));}
+  .tl .step{position:relative;padding:0 0 34px 52px;}
+  .tl .step:last-child{padding-bottom:0;}
+  .tl .dot{position:absolute;left:5px;top:2px;width:18px;height:18px;border-radius:50%;background:var(--paper);border:3px solid var(--olive);}
+  .tl .mo{font-family:var(--alt);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--olive);margin:0 0 4px;}
+  .tl .tx{font-size:17px;color:var(--charcoal);margin:0;max-width:62ch;}
+  .tl .tx b{color:var(--ink);}
+
+  /* footer */
+  footer{background:var(--ink);color:var(--paper);padding:84px 0 64px;}
+  footer .grid{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;}
+  footer .thanks{font-weight:600;font-size:clamp(30px,4.4vw,54px);line-height:1.02;margin:0;letter-spacing:-.01em;max-width:16ch;}
+  footer .thanks .accent{color:var(--citron);}
+  footer .beam-f{height:42px;margin:30px 0 0;}
+  footer .sign{text-align:right;}
+  footer .sign img{height:54px;width:auto;margin-bottom:16px;}
+  footer .sign p{margin:0;font-size:13px;color:rgba(250,250,246,.55);font-family:var(--alt);letter-spacing:.04em;line-height:1.7;}
+  footer .sign a{color:var(--citron);}
+  footer .rule{height:1px;background:rgba(250,250,246,.14);margin:50px 0 26px;}
+  footer .legal{font-size:12px;color:rgba(250,250,246,.4);max-width:80ch;}
+  @media(max-width:760px){footer .sign{text-align:left;}}
+
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+  .rv.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}}
+</style>
+</head>
+<body>
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFCAA"/><stop offset="0.5" stop-color="#2F84CF"/><stop offset="1" stop-color="#797629"/>
+    </linearGradient></defs>
+    <rect width="100" height="100" rx="20" fill="#292929"/>
+    <text x="50" y="60" font-family="Montserrat,sans-serif" font-size="30" font-weight="700" fill="url(#bg)" text-anchor="middle">BEAM</text>
+    <text x="50" y="78" font-family="Montserrat,sans-serif" font-size="8" font-weight="600" letter-spacing="2" fill="#FAFAF6" text-anchor="middle">REPORT 2026</text>
+  </svg>
+</template>
+
+<!-- ===== STICKY BAR ===== -->
+<div class="topbar">
+  <div class="row">
+    <img src="uploads/Marketers-Accelerator-Logo-bianco-e1714728050561.png" alt="Marketers Accelerator">
+    <span class="ttl">BEAM 2026 · Report Comunicazione</span>
+    <nav>
+      <a href="#mandato">Mandato</a>
+      <a href="#organica">Organica</a>
+      <a href="#adv">ADV</a>
+      <a href="#lead">Lead</a>
+      <a href="#mail">Email</a>
+      <a href="#sito">Sito</a>
+      <a href="#creator">Creator</a>
+    </nav>
+  </div>
+  <div class="progress" id="progress"></div>
+</div>
+
+<!-- ===== COVER ===== -->
+<header class="cover" data-screen-label="Cover">
+  <div class="wrap">
+    <img class="ma" src="uploads/brand_white.png" alt="Marketers Accelerator">
+    <p class="kick">Report attività di comunicazione</p>
+    <h1>Il racconto del lavoro dietro BEAM 2026</h1>
+    <img src="assets/beam-logo.png" alt="BEAM" style="height:64px;width:auto;margin:0 0 26px;display:block">
+    <div class="meta">
+      <span>HOSPITALITY GAMECHANGER SUMMIT · BOLZANO</span>
+      <span>PERIODO DI ATTIVITÀ: DIC 2025 – MAG 2026</span>
+      <span>PERIODO DI ANALISI DATI: NOV 2025 – GIU 2026</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== MANDATO ===== -->
+<section id="mandato" data-screen-label="Mandato">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">01</div>
+      <div>
+        <p class="eyebrow">Il mandato</p>
+        <h2 class="sec-title">Cosa abbiamo gestito</h2>
+        <p class="sec-sub">Marketers Accelerator ha seguito la comunicazione di BEAM 2026 end-to-end: dalla presenza organica all'advertising a performance, dal mail marketing al sito ufficiale, fino alla selezione e gestione dei creator durante l'evento.</p>
+      </div>
+    </div>
+    <div class="areas rv">
+      <div class="area">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+        <h3>Comunicazione organica</h3>
+        <p>Presenza social e piano editoriale, dal lancio di dicembre 2025.</p>
+      </div>
+      <div class="area">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></div>
+        <h3>Advertising</h3>
+        <p>Campagne a performance su 4 obiettivi: acquisto, notorietà, visite profilo, lead.</p>
+      </div>
+      <div class="area">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+        <h3>Email marketing</h3>
+        <p>Newsletter IT e DE e flussi a supporto di lead e conversioni.</p>
+      </div>
+      <div class="area">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="15" rx="2"/><path d="M2 9h20M7 19h10"/></svg></div>
+        <h3>Sito web</h3>
+        <p>Realizzazione e aggiornamento continuo (speaker, programma, lead magnet).</p>
+      </div>
+      <div class="area">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></div>
+        <h3>Gestione creator</h3>
+        <p>5 creator selezionati, gestiti e attivati on-site per storie e contenuti.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== A COLPO D'OCCHIO ===== -->
+<section class="dark" data-screen-label="A colpo d'occhio">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">02</div>
+      <div>
+        <p class="eyebrow" style="color:var(--citron)">A colpo d'occhio</p>
+        <h2 class="sec-title">I risultati chiave</h2>
+        <p class="sec-sub">La sintesi dei numeri principali generati su tutti i canali nel periodo novembre 2025 – giugno 2026.</p>
+      </div>
+    </div>
+    <div class="kpi-strip rv">
+      <div class="kpi"><div class="n">1,8<span class="u">mln</span></div><div class="l">Visualizzazioni Instagram</div></div>
+      <div class="kpi"><div class="n">240<span class="u">mila</span></div><div class="l">Visualizzazioni dai creator</div></div>
+      <div class="kpi"><div class="n">26.444</div><div class="l">Impressioni LinkedIn</div></div>
+      <div class="kpi"><div class="n">93.081</div><div class="l">Visualizzazioni del sito</div></div>
+    </div>
+    <div class="kpi-strip rv" style="margin-top:48px">
+      <div class="kpi"><div class="n">2.118</div><div class="l">Lead unici acquisiti</div></div>
+      <div class="kpi"><div class="n">54</div><div class="l">Ticket venduti da advertising</div></div>
+      <div class="kpi"><div class="n">9.889</div><div class="l">Email inviate · 51,8% open</div></div>
+      <div class="kpi"><div class="n">14.768<span class="u">€</span></div><div class="l">Investimento adv gestito</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ORGANICA ===== -->
+<section id="organica" class="sand" data-screen-label="Organica">
+  <div class="wrap">
+    <div class="ws rv">
+      <div>
+        <p class="ws-tag">03 · Comunicazione organica · Instagram</p>
+        <h2>Presenza costante, dal lancio di dicembre</h2>
+        <p class="lead-p">Da dicembre 2025 abbiamo costruito e alimentato la presenza organica di <a href="https://www.instagram.com/beam_summit/" target="_blank" rel="noopener">@beam_summit</a> su Instagram, con un piano editoriale che ha accompagnato il pubblico fino al summit — generando <b>1,8 milioni di visualizzazioni</b>.</p>
+        <ul class="did">
+          <li><b>55 contenuti</b> pubblicati: 36 caroselli, 14 reel, 5 immagini</li>
+          <li>Racconto di speaker, temi, Labs e format dell'evento</li>
+          <li>Awareness e community costruite mese dopo mese</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Risultati organici — Instagram</h4>
+        <div class="kpi-strip">
+          <div class="kpi"><div class="n">1,8<span class="u">mln</span></div><div class="l">Visualizzazioni</div><div class="d">+40.474,8%</div></div>
+          <div class="kpi"><div class="n">376.241</div><div class="l">Copertura</div><div class="d">+1,6%</div></div>
+          <div class="kpi"><div class="n">5.049</div><div class="l">Interazioni</div><div class="d">+50.390%</div></div>
+          <div class="kpi"><div class="n">9.933</div><div class="l">Visite al profilo</div><div class="d">+184%</div></div>
+          <div class="kpi"><div class="n">12.630</div><div class="l">Clic sul link</div><div class="d">+3.846,9%</div></div>
+          <div class="kpi"><div class="n">1.160</div><div class="l">Follower totali (ad oggi)</div><div class="d">+2.368,1% vs periodo prec.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout rv"><b>Nota sulle variazioni %:</b> le percentuali di crescita sono calcolate rispetto al periodo di confronto <b>25 marzo – 31 ottobre 2025</b> (fase pre-attivazione della comunicazione). Periodo analizzato: 1 novembre 2025 – 9 giugno 2026.</div>
+
+    <div class="toplist rv">
+      <h4 class="blk-h olive">Contenuti top per visualizzazioni</h4>
+      <div class="trow">
+        <div class="rk">1</div>
+        <div class="ti"><p class="ds"><a href="https://www.instagram.com/reel/DSSvt_sjUPe/" target="_blank" rel="noopener" style="color:inherit">"Words you hear from every BEAM participant" ↗</a></p><p class="mt">Reel · 15 dic 2025</p></div>
+        <div class="mv"><div class="v">72.462</div><div class="k">Visual.</div></div>
+        <div class="mv hide"><div class="v">111.824</div><div class="k">Copertura</div></div>
+        <div class="mv hide"><div class="v">129</div><div class="k">Like</div></div>
+      </div>
+      <div class="trow">
+        <div class="rk">2</div>
+        <div class="ti"><p class="ds"><a href="https://www.instagram.com/reel/DSc6wKHlGec/" target="_blank" rel="noopener" style="color:inherit">"BEAM 2025 in one word" — speaker &amp; partecipanti ↗</a></p><p class="mt">Reel · 19 dic 2025</p></div>
+        <div class="mv"><div class="v">33.786</div><div class="k">Visual.</div></div>
+        <div class="mv hide"><div class="v">72.640</div><div class="k">Copertura</div></div>
+        <div class="mv hide"><div class="v">59</div><div class="k">Like</div></div>
+      </div>
+      <div class="trow">
+        <div class="rk">3</div>
+        <div class="ti"><p class="ds"><a href="https://www.instagram.com/p/DT-3ocqgEla/" target="_blank" rel="noopener" style="color:inherit">"How do you grow without losing your identity?" — Sven Sallaerts ↗</a></p><p class="mt">Carosello · 26 gen 2026</p></div>
+        <div class="mv"><div class="v">20.412</div><div class="k">Visual.</div></div>
+        <div class="mv hide"><div class="v">35.190</div><div class="k">Copertura</div></div>
+        <div class="mv hide"><div class="v">15</div><div class="k">Like</div></div>
+      </div>
+      <div class="trow">
+        <div class="rk">4</div>
+        <div class="ti"><p class="ds"><a href="https://www.instagram.com/p/DSFazfpCEQc/" target="_blank" rel="noopener" style="color:inherit">"The future of hospitality won't be decided in conference rooms" ↗</a></p><p class="mt">Carosello · 10 dic 2025</p></div>
+        <div class="mv"><div class="v">13.034</div><div class="k">Visual.</div></div>
+        <div class="mv hide"><div class="v">38.610</div><div class="k">Copertura</div></div>
+        <div class="mv hide"><div class="v">60</div><div class="k">Like</div></div>
+      </div>
+    </div>
+
+    <div class="rv">
+      <h4 class="blk-h olive" style="margin-top:54px;margin-bottom:0">Fonte dati · Instagram Insights</h4>
+      <div class="shots">
+        <figure><img src="assets/ig-visualizzazioni.png" alt="Visualizzazioni 1,8 mln"></figure>
+        <figure><img src="assets/ig-copertura.png" alt="Copertura 376.241"></figure>
+        <figure><img src="assets/ig-interazioni.png" alt="Interazioni 5049"></figure>
+        <figure><img src="assets/ig-clic.png" alt="Clic sul link 12.630"></figure>
+        <figure><img src="assets/ig-visite.png" alt="Visite al profilo 9933"></figure>
+        <figure><img src="assets/ig-follower.png" alt="Follower 1160"></figure>
+      </div>
+      <p class="src-note">Account <a href="https://www.instagram.com/beam_summit/" target="_blank" rel="noopener">@beam_summit</a> · periodo 1 novembre 2025 – 9 giugno 2026 · confronto vs 25 marzo – 31 ottobre 2025.</p>
+    </div>
+
+    <div class="ws rv" style="margin-top:64px">
+      <div>
+        <p class="ws-tag">03 · Comunicazione organica · LinkedIn</p>
+        <h2>Il presidio B2B su LinkedIn</h2>
+        <p class="lead-p">In parallelo a Instagram, abbiamo gestito la pagina <b>BEAM Summit</b> su LinkedIn. La differenza è nell'obiettivo: se Instagram lavora sulla <b>portata e l'awareness</b>, LinkedIn presidia il <b>B2B e le relazioni</b> con decision-maker e operatori dell'hospitality — un'audience più piccola ma altamente qualificata.</p>
+        <ul class="did">
+          <li>Canale 100% organico, tono istituzionale</li>
+          <li>Contenuti su speaker, partner e visione del summit</li>
+          <li>Crescita costante di follower e relazioni qualificate</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Risultati organici — LinkedIn</h4>
+        <div class="kpi-strip">
+          <div class="kpi"><div class="n">26.444</div><div class="l">Impressioni</div></div>
+          <div class="kpi"><div class="n">12.178</div><div class="l">Impressioni uniche</div></div>
+          <div class="kpi"><div class="n">3.551</div><div class="l">Clic</div></div>
+          <div class="kpi"><div class="n">1.063</div><div class="l">Reazioni</div></div>
+          <div class="kpi"><div class="n">17,6<span class="u">%</span></div><div class="l">Engagement rate</div></div>
+          <div class="kpi"><div class="n">1.662</div><div class="l">Follower totali</div><div class="d">+111 ultimi 30gg</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ws rv" style="margin-top:10px">
+      <div>
+        <h4 class="blk-h olive">Pubblico per funzione lavorativa</h4>
+        <div class="bars">
+          <div class="bar"><div class="bl">Business Development</div><div class="bt" style="width:100%"></div><div class="bv">26%</div></div>
+          <div class="bar"><div class="bl">Vendite</div><div class="bt" style="width:41%"></div><div class="bv">10,6%</div></div>
+          <div class="bar"><div class="bl">Operazioni</div><div class="bt" style="width:38%"></div><div class="bv">10%</div></div>
+          <div class="bar"><div class="bl">Marketing</div><div class="bt" style="width:27%"></div><div class="bv">7,1%</div></div>
+          <div class="bar"><div class="bl">Media e comunicazione</div><div class="bt" style="width:23%"></div><div class="bv">6%</div></div>
+          <div class="bar"><div class="bl">Program &amp; Project Mgmt</div><div class="bt" style="width:21%"></div><div class="bv">5,4%</div></div>
+        </div>
+      </div>
+      <div>
+        <h4 class="blk-h olive">Follower per località</h4>
+        <div class="bars">
+          <div class="bar"><div class="bl">Bolzano</div><div class="bt" style="width:100%"></div><div class="bv">32,6%</div></div>
+          <div class="bar"><div class="bl">Monaco di Baviera</div><div class="bt" style="width:18%"></div><div class="bv">6%</div></div>
+          <div class="bar"><div class="bl">Berlino</div><div class="bt" style="width:12%"></div><div class="bv">4%</div></div>
+          <div class="bar"><div class="bl">Milano</div><div class="bt" style="width:10%"></div><div class="bv">3,4%</div></div>
+          <div class="bar"><div class="bl">Innsbruck</div><div class="bt" style="width:9%"></div><div class="bv">3,1%</div></div>
+          <div class="bar"><div class="bl">Trento</div><div class="bt" style="width:8%"></div><div class="bv">2,5%</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="callout rv">Un'audience di qualità: oltre un quarto del pubblico LinkedIn lavora in <b>Business Development</b>, seguito da Vendite e Operazioni. La community è concentrata su <b>Bolzano e l'area DACH</b> (Monaco, Berlino, Innsbruck, Vienna) oltre a Milano e Trento — esattamente il target del summit.</div>
+  </div>
+</section>
+
+<!-- ===== ADV ===== -->
+<section id="adv" data-screen-label="Advertising">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">04</div>
+      <div>
+        <p class="eyebrow">Advertising a performance</p>
+        <h2 class="sec-title">Le campagne, per obiettivo</h2>
+        <p class="sec-sub">Investimento totale gestito di <b>€14.768</b> su 7 campagne Meta, strutturate su quattro obiettivi lungo il funnel — notorietà, visite al profilo, lead e acquisto. Periodo: 1 nov 2025 – 31 mag 2026.</p>
+      </div>
+    </div>
+
+    <div class="kpi-strip rv" style="margin-bottom:46px">
+      <div class="kpi"><div class="n">14.768<span class="u">€</span></div><div class="l">Investimento totale</div></div>
+      <div class="kpi"><div class="n">3,25<span class="u">mln</span></div><div class="l">Impression</div></div>
+      <div class="kpi"><div class="n">39.581</div><div class="l">Clic sul link</div></div>
+      <div class="kpi"><div class="n">1.975</div><div class="l">Lead da advertising</div></div>
+    </div>
+
+    <div class="obj-grid rv">
+      <div class="oc live">
+        <div class="h">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></div>
+          <p class="tt"><small>Obiettivo · Lead</small>Lead magnet</p>
+          <span class="badge ok">Dati a sistema</span>
+        </div>
+        <div class="kpi-strip">
+          <div class="kpi"><div class="n">2.118</div><div class="l">Lead unici</div></div>
+          <div class="kpi"><div class="n">1.975</div><div class="l">Lead da paid social (93,2%)</div></div>
+          <div class="kpi"><div class="n">3.151</div><div class="l">Submission valide</div></div>
+          <div class="kpi"><div class="n">2.083</div><div class="l">Lead da download report</div></div>
+        </div>
+      </div>
+
+      <div class="oc">
+        <div class="h">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></div>
+          <p class="tt"><small>Obiettivo · Acquisto</small>Acquisto ticket</p>
+          <span class="badge ok">Dati a sistema</span>
+        </div>
+        <div class="kpi-strip">
+          <div class="kpi"><div class="n">54</div><div class="l">Acquisti ticket</div></div>
+          <div class="kpi"><div class="n">29</div><div class="l">Inizi di acquisto (checkout)</div></div>
+          <div class="kpi"><div class="n">6.759<span class="u">€</span></div><div class="l">Spesa</div></div>
+          <div class="kpi"><div class="n">43,66<span class="u">€</span></div><div class="l">CPA migliore (camp. Vendita Ticket)</div></div>
+        </div>
+      </div>
+
+      <div class="oc">
+        <div class="h">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></div>
+          <p class="tt"><small>Obiettivo · Notorietà</small>Notorietà</p>
+          <span class="badge ok">Dati a sistema</span>
+        </div>
+        <div class="kpi-strip">
+          <div class="kpi"><div class="n">3,25<span class="u">mln</span></div><div class="l">Impression totali</div></div>
+          <div class="kpi"><div class="n">4,55<span class="u">€</span></div><div class="l">CPM medio</div></div>
+          <div class="kpi"><div class="n">320.550</div><div class="l">Interazioni con la pagina</div></div>
+          <div class="kpi"><div class="n">575</div><div class="l">Nuovi follower da adv</div></div>
+        </div>
+      </div>
+
+      <div class="oc">
+        <div class="h">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></div>
+          <p class="tt"><small>Obiettivo · Profilo</small>Visite profilo IG</p>
+          <span class="badge ok">Dati a sistema</span>
+        </div>
+        <div class="kpi-strip">
+          <div class="kpi"><div class="n">3.585</div><div class="l">Visite al profilo (camp. Boost)</div></div>
+          <div class="kpi"><div class="n">0,18<span class="u">€</span></div><div class="l">Costo per visita</div></div>
+          <div class="kpi"><div class="n">5.564</div><div class="l">Clic al link</div></div>
+          <div class="kpi"><div class="n">663<span class="u">€</span></div><div class="l">Spesa</div></div>
+        </div>
+      </div>
+    </div>
+
+    <h4 class="blk-h olive rv" style="margin-top:54px">Traffico al sito da paid social (GA4)</h4>
+    <div class="bars rv" id="advbars">
+      <div class="bar"><div class="bl">Paid social</div><div class="bt" style="width:100%"></div><div class="bv">50.999 <small>visual.</small></div></div>
+      <div class="bar"><div class="bl">Audience Network</div><div class="bt" style="width:43%"></div><div class="bv">21.653</div></div>
+      <div class="bar"><div class="bl">Instagram Feed</div><div class="bt" style="width:18%"></div><div class="bv">9.000</div></div>
+      <div class="bar"><div class="bl">Facebook Mobile Feed</div><div class="bt" style="width:12%"></div><div class="bv">6.228</div></div>
+    </div>
+    <p class="src-note rv">Il paid social ha generato il 55% delle visualizzazioni del sito · Fonte GA4 + Meta Ads Manager, 1 nov 2025 – 31 mag 2026.</p>
+  </div>
+</section>
+
+<!-- ===== LEAD GENERATION ===== -->
+<section id="lead" class="sand" data-screen-label="Lead generation">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">05</div>
+      <div>
+        <p class="eyebrow">Lead generation &amp; database</p>
+        <h2 class="sec-title">2.118 lead unici, di altissima qualità</h2>
+        <p class="sec-sub">Il report scaricabile è stato il principale asset di acquisizione, alimentato dal paid social. Oltre ai numeri, conta la qualità del database raccolto.</p>
+      </div>
+    </div>
+
+    <div class="kpi-strip rv">
+      <div class="kpi"><div class="n">2.118</div><div class="l">Lead unici acquisiti</div></div>
+      <div class="kpi"><div class="n">98,3<span class="u">%</span></div><div class="l">Lead generati dal download report (2.083)</div></div>
+      <div class="kpi"><div class="n">93,2<span class="u">%</span></div><div class="l">Lead da paid social (1.975)</div></div>
+      <div class="kpi"><div class="n">599</div><div class="l">Email aziendali / professionali (28,3%)</div></div>
+    </div>
+
+    <div class="toplist rv" style="margin-top:50px">
+      <h4 class="blk-h olive">Dettaglio acquisizione</h4>
+      <table class="dtable">
+        <thead><tr><th>Area di analisi</th><th>Dato</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>Submission valide</td><td><b>3.151</b></td><td class="sub">Interazioni pulite con i form</td></tr>
+          <tr><td>Lead unici acquisiti</td><td><b>2.118</b></td><td class="sub">Al netto delle compilazioni multiple (1.033)</td></tr>
+          <tr><td>Lead da download report</td><td><b>2.083</b></td><td class="sub">Principale asset di acquisizione · 98,3%</td></tr>
+          <tr><td>Lead da paid social</td><td><b>1.975</b></td><td class="sub">93,2% · placement IG Feed + FB Mobile Feed (~75,5%)</td></tr>
+          <tr><td>Lead italiani / tedeschi</td><td><b>1.676 / 441</b></td><td class="sub">Doppio bacino linguistico</td></tr>
+          <tr><td>Lead direct / on-site</td><td><b>106</b></td><td class="sub">Acquisizione diretta</td></tr>
+          <tr><td>Email aziendali / professionali</td><td><b>599</b></td><td class="sub">~28,3% del database, segnale B2B diretto</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="rv">
+      <h4 class="blk-h olive" style="margin-top:50px">Qualità dei lead — alcune realtà intercettate</h4>
+      <div class="qgrid">
+        <div class="qcol">
+          <h5>Hôtellerie &amp; gruppi</h5>
+          <div class="chip">Grand Hotel et de Milan</div>
+          <div class="chip">Rosa Alpina</div>
+          <div class="chip">Starhotels</div>
+          <div class="chip">Gruppo UNA</div>
+          <div class="chip">Flemings Hotels</div>
+          <div class="chip">Omnia Hotels</div>
+        </div>
+        <div class="qcol">
+          <h5>Corporate &amp; istituzioni</h5>
+          <div class="chip">Aeroporti di Roma</div>
+          <div class="chip">Repower</div>
+          <div class="chip">Mazars</div>
+          <div class="chip">IDM Südtirol</div>
+          <div class="chip">Camera di Commercio di Milano</div>
+          <div class="chip">Fondazione MPS</div>
+        </div>
+        <div class="qcol">
+          <h5>Design &amp; consulenza</h5>
+          <div class="chip">Peia Associati</div>
+          <div class="chip">Istituto Marangoni</div>
+          <div class="chip">Analytics Boosters</div>
+          <div class="chip">Ingredini Consulting</div>
+        </div>
+        <div class="qcol">
+          <h5>Mobility &amp; travel premium</h5>
+          <div class="chip">Kel12 — Nat Geo Expeditions</div>
+          <div class="chip">Fantic Rent</div>
+          <div class="chip">Bimboinviaggio.com</div>
+          <div class="chip">Planeta Estate</div>
+        </div>
+      </div>
+      <p class="src-note">Identikit basato sui lead reali acquisiti tramite i form. Selezione rappresentativa del calibro del database.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EMAIL ===== -->
+<section id="mail" data-screen-label="Email">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">06</div>
+      <div>
+        <p class="eyebrow">Email marketing</p>
+        <h2 class="sec-title">Newsletter IT &amp; DE</h2>
+        <p class="sec-sub">22 invii complessivi (11 italiani, 11 tedeschi) lungo tutta la campagna, con open rate medio superiore al 51% — ben sopra la media di settore.</p>
+      </div>
+    </div>
+
+    <div class="kpi-strip rv">
+      <div class="kpi"><div class="n">9.889</div><div class="l">Email inviate (IT + DE)</div></div>
+      <div class="kpi"><div class="n">51,8<span class="u">%</span></div><div class="l">Open rate medio</div></div>
+      <div class="kpi"><div class="n">7,7<span class="u">%</span></div><div class="l">Click rate medio</div></div>
+      <div class="kpi"><div class="n">4.553</div><div class="l">Aperture totali · 414 clic</div></div>
+    </div>
+
+    <div class="ws rv" style="margin-top:54px;align-items:start">
+      <div>
+        <h4 class="blk-h olive">Newsletter italiane · 11 invii</h4>
+        <table class="dtable">
+          <thead><tr><th>Oggetto</th><th>Dest.</th><th>Open</th><th>Click</th></tr></thead>
+          <tbody>
+            <tr><td>BEAM 2026 sta prendendo forma</td><td>85</td><td>57,3%</td><td>9,8%</td></tr>
+            <tr><td>Biglietti al miglior prezzo!</td><td>83</td><td>48,8%</td><td>1,3%</td></tr>
+            <tr><td>Cosa dicono di BEAM</td><td>407</td><td>56,2%</td><td>3,6%</td></tr>
+            <tr><td>Il futuro non si prevede. Si costruisce</td><td>393</td><td>44,4%</td><td>2,7%</td></tr>
+            <tr><td>Il paradosso dell'Hospitality</td><td>634</td><td>46,9%</td><td>2,5%</td></tr>
+            <tr><td>⚠️ Ultime ore al prezzo attuale</td><td>764</td><td>41,8%</td><td>2,4%</td></tr>
+            <tr><td>Abbiamo sbagliato tutto per 25 anni</td><td>1.194</td><td>48,5%</td><td>2,9%</td></tr>
+            <tr><td>Trasforma i critici in alleati</td><td>1.311</td><td>42,2%</td><td>1,2%</td></tr>
+            <tr><td>La bugia della "Passione"</td><td>1.486</td><td>39,9%</td><td>1,4%</td></tr>
+            <tr><td>Grazie per questo BEAM 2026 ✨</td><td>76</td><td class="pos">69,7%</td><td class="pos">21,1%</td></tr>
+            <tr><td>BEAM 2026 si è concluso</td><td>76</td><td class="pos">63,2%</td><td class="pos">17,1%</td></tr>
+            <tr class="tot"><td>Totale / media IT</td><td>6.509</td><td>50,8%</td><td>6,0%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h4 class="blk-h olive">Newsletter tedesche · 11 invii</h4>
+        <table class="dtable">
+          <thead><tr><th>Oggetto</th><th>Dest.</th><th>Open</th><th>Click</th></tr></thead>
+          <tbody>
+            <tr><td>BEAM 2026 nimmt Gestalt an</td><td>157</td><td>58,0%</td><td>15,3%</td></tr>
+            <tr><td>47 Visitenkarten. Null Gespräche.</td><td>156</td><td>45,3%</td><td>5,4%</td></tr>
+            <tr><td>Die Zukunft geschieht nicht von selbst</td><td>227</td><td>47,7%</td><td>1,8%</td></tr>
+            <tr><td>Das Hospitality-Paradoxon</td><td>596</td><td>47,7%</td><td>4,9%</td></tr>
+            <tr><td>Report erfolgreich heruntergeladen</td><td>220</td><td class="pos">63,3%</td><td class="pos">19,3%</td></tr>
+            <tr><td>⚠️ Nur noch wenige Stunden</td><td>464</td><td>47,5%</td><td>5,5%</td></tr>
+            <tr><td>Wir haben 25 Jahre alles falsch gemacht</td><td>387</td><td>53,4%</td><td>3,5%</td></tr>
+            <tr><td>Kritiker in Verbündete verwandeln</td><td>383</td><td>47,0%</td><td>3,2%</td></tr>
+            <tr><td>Die Lüge der „Leidenschaft"</td><td>375</td><td>41,5%</td><td>1,4%</td></tr>
+            <tr><td>Danke, dass du BEAM erlebt hast!</td><td>208</td><td class="pos">65,7%</td><td class="pos">23,7%</td></tr>
+            <tr><td>BEAM 2026 ist vorbei</td><td>207</td><td class="pos">63,8%</td><td class="pos">19,3%</td></tr>
+            <tr class="tot"><td>Totale / media DE</td><td>3.380</td><td>52,8%</td><td>9,4%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="callout rv">Le comunicazioni più performanti sono quelle <b>post-evento</b> (open rate fino al 69,7%) e quelle legate al <b>download del report</b> (DE 63,3% / 19,3% di click), a conferma di un database fortemente ingaggiato.</div>
+  </div>
+</section>
+
+<!-- ===== SITO ===== -->
+<section id="sito" data-screen-label="Sito">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">07</div>
+      <div>
+        <p class="eyebrow">Sito web</p>
+        <h2 class="sec-title">Il sito ufficiale, hub della campagna</h2>
+        <p class="sec-sub">Abbiamo realizzato e aggiornato <a href="https://beam.fierabolzano.it/" target="_blank" rel="noopener">beam.fierabolzano.it</a> con speaker, programma e lead magnet. È il punto di atterraggio di adv, email e social.</p>
+      </div>
+    </div>
+
+    <div class="kpi-strip rv">
+      <div class="kpi"><div class="n">93.081</div><div class="l">Visualizzazioni di pagina</div></div>
+      <div class="kpi"><div class="n">61.671</div><div class="l">Sulla home BEAM</div></div>
+      <div class="kpi"><div class="n">18.184</div><div class="l">Sulla landing "Report" (lead magnet)</div></div>
+      <div class="kpi"><div class="n">3</div><div class="l">Lingue · IT · DE · EN</div></div>
+    </div>
+
+    <div class="ws rv" style="margin-top:54px;align-items:start">
+      <div>
+        <h4 class="blk-h olive">Visualizzazioni per canale (GA4)</h4>
+        <div class="bars">
+          <div class="bar"><div class="bl">Paid social</div><div class="bt" style="width:100%"></div><div class="bv">50.999</div></div>
+          <div class="bar"><div class="bl">Organic search</div><div class="bt" style="width:36%"></div><div class="bv">18.233</div></div>
+          <div class="bar"><div class="bl">Diretto</div><div class="bt" style="width:31%"></div><div class="bv">15.600</div></div>
+          <div class="bar"><div class="bl">Referral</div><div class="bt" style="width:11%"></div><div class="bv">5.285</div></div>
+          <div class="bar"><div class="bl">Display / Digital PR</div><div class="bt" style="width:3%"></div><div class="bv">1.241</div></div>
+          <div class="bar"><div class="bl">Email</div><div class="bt" style="width:2%"></div><div class="bv">758</div></div>
+        </div>
+        <p class="src-note">Il paid social ha generato il <b>55%</b> delle visualizzazioni totali del sito.</p>
+      </div>
+      <div>
+        <h4 class="blk-h olive">Pagine più viste</h4>
+        <table class="dtable">
+          <thead><tr><th>Pagina</th><th>Visual.</th></tr></thead>
+          <tbody>
+            <tr><td>Home BEAM</td><td><b>61.671</b></td></tr>
+            <tr><td>Report (lead magnet)</td><td><b>18.184</b></td></tr>
+            <tr><td>Report scaricato</td><td><b>3.123</b></td></tr>
+            <tr><td>Labs</td><td><b>2.946</b></td></tr>
+            <tr><td>Tickets</td><td><b>1.974</b></td></tr>
+            <tr><td>Partner</td><td><b>1.006</b></td></tr>
+            <tr><td>Ambitious Ambassadors</td><td><b>990</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="src-note rv">Fonte: GA4 FieraMesse · 1 novembre 2025 – 9 giugno 2026.</p>
+  </div>
+</section>
+
+<!-- ===== CREATOR ===== -->
+<section id="creator" class="dark" data-screen-label="Creator">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">08</div>
+      <div>
+        <p class="eyebrow" style="color:var(--citron)">Gestione creator</p>
+        <h2 class="sec-title">5 creator, 240.000 visualizzazioni</h2>
+        <p class="sec-sub">Abbiamo selezionato, gestito (contratti e brief) e coordinato on-site 5 creator, secondo due macro-obiettivi: <b style="color:#fff">amplificazione</b> (largo seguito) ed <b style="color:#fff">ecosystem value</b> (credibilità di settore).</p>
+      </div>
+    </div>
+
+    <div class="kpi-strip rv">
+      <div class="kpi"><div class="n">240<span class="u">mila</span></div><div class="l">Visualizzazioni totali (storie + reel)</div></div>
+      <div class="kpi"><div class="n">48.700</div><div class="l">Utenti unici raggiunti</div></div>
+      <div class="kpi"><div class="n">1.902</div><div class="l">Interazioni totali</div></div>
+      <div class="kpi"><div class="n">58/42</div><div class="l">% follower / non-follower (forte attrazione esterna)</div></div>
+    </div>
+
+    <div class="cgrid rv" style="margin-top:54px">
+      <div class="cc" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)">
+        <img class="face" src="assets/creator/face-872.png" alt="Max Mariola">
+        <p class="cn" style="color:#fff">Max Mariola</p>
+        <p class="cf">3.1M<small>follower</small></p>
+        <p class="cmeta">Ristorazione · Chef</p>
+        <span class="obj amp">Amplificazione</span>
+        <p class="role" style="color:rgba(250,250,246,.7)">Massima visibilità nazionale. 95% follower, 76% uomini, 2.885 tap indietro sulle storie.</p>
+        <div class="links"><a href="https://www.instagram.com/chefmaxmariola/" target="_blank" rel="noopener">Instagram ↗</a></div>
+      </div>
+      <div class="cc" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)">
+        <img class="face" src="assets/creator/face-laura.png" alt="Laura Masi">
+        <p class="cn" style="color:#fff">Laura Masi</p>
+        <p class="cf">84,4k<small>follower</small></p>
+        <p class="cmeta">Travel &amp; Experience</p>
+        <span class="obj amp">Amplificazione</span>
+        <p class="role" style="color:rgba(250,250,246,.7)">Nicchia viaggiatori premium. Reel virale: 95% non-follower, 120 like / 85 commenti.</p>
+        <div class="links"><a href="https://www.instagram.com/ruberry/" target="_blank" rel="noopener">Instagram ↗</a></div>
+      </div>
+      <div class="cc" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)">
+        <img class="face" src="assets/creator/face-814.png" alt="Paola Di Giambattista">
+        <p class="cn" style="color:#fff">Paola Di Giambattista</p>
+        <p class="cf">3.605<small>follower</small></p>
+        <p class="cmeta">Food Innovation</p>
+        <span class="obj eco">Ecosystem value</span>
+        <p class="role" style="color:rgba(250,250,246,.7)">Dibattito istituzionale e credibilità su LinkedIn. Audience executive.</p>
+        <div class="links"><a href="https://www.linkedin.com/in/paola-di-giambattista-food-specialist/" target="_blank" rel="noopener">LinkedIn ↗</a></div>
+      </div>
+      <div class="cc" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)">
+        <img class="face" src="assets/creator/face-805.png" alt="Elettra Lazzerini">
+        <p class="cn" style="color:#fff">Elettra Lazzerini</p>
+        <p class="cf">45,7k<small>follower</small></p>
+        <p class="cmeta">Hospitality Specialist</p>
+        <span class="obj eco">Ecosystem value</span>
+        <p class="role" style="color:rgba(250,250,246,.7)">Direttori e proprietari di strutture. 87% in fascia 25–54, 72% manageriale femminile.</p>
+        <div class="links"><a href="https://www.instagram.com/elettralazzerini/" target="_blank" rel="noopener">Instagram ↗</a></div>
+      </div>
+      <div class="cc" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)">
+        <img class="face" src="assets/creator/face-808.png" alt="Matteo Delvai">
+        <p class="cn" style="color:#fff">Matteo Delvai</p>
+        <p class="cf">22,4k<small>follower</small></p>
+        <p class="cmeta">Food · Chef</p>
+        <span class="obj eco">Ecosystem value</span>
+        <p class="role" style="color:rgba(250,250,246,.7)">Operatori HoReCa di nicchia. Reel con skip rate ridotto al 62,9%.</p>
+        <div class="links"><a href="https://www.instagram.com/matteo_delvai/" target="_blank" rel="noopener">Instagram ↗</a></div>
+      </div>
+    </div>
+
+    <div class="toplist rv" style="margin-top:50px">
+      <h4 class="blk-h">Overview contenuti per creator</h4>
+      <table class="dtable" style="color:rgba(250,250,246,.7)">
+        <thead><tr><th style="color:var(--citron)">Profilo</th><th style="color:var(--citron)">Contenuti</th><th style="color:var(--citron)">Visual.</th><th style="color:var(--citron)">Utenti unici</th><th style="color:var(--citron)">Interazioni</th></tr></thead>
+        <tbody>
+          <tr><td style="color:#fff">Max Mariola</td><td>7 IG Stories</td><td>141.000</td><td>18.200</td><td>930</td></tr>
+          <tr><td style="color:#fff">Laura Masi</td><td>10 Stories + 1 Reel</td><td>59.800</td><td>18.100</td><td>310</td></tr>
+          <tr><td style="color:#fff">Elettra Lazzerini</td><td>16 Stories + 1 Reel</td><td>29.700</td><td>9.000</td><td>480</td></tr>
+          <tr><td style="color:#fff">Matteo Delvai</td><td>8 Stories + 1 Reel</td><td>9.500</td><td>3.400</td><td>130</td></tr>
+          <tr><td style="color:#fff">Paola Di Giambattista</td><td>2 Post LinkedIn</td><td>—</td><td>—</td><td>52</td></tr>
+          <tr class="tot" style="color:#fff"><td>Campagna totale</td><td>41 Storie + 3 Reel + 2 LinkedIn</td><td>240.000</td><td>48.700</td><td>1.902</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="rv" style="margin-top:58px">
+      <h4 class="blk-h">Insight dai contenuti — gli screenshot reali</h4>
+
+      <div class="galblock">
+        <p class="gm">Max Mariola</p>
+        <p class="gd">141.000 visualizzazioni · 18.200 utenti unici · 930 interazioni · 2.885 tap "indietro"</p>
+        <p class="ty">Stories · 7 storie</p>
+        <img class="sheet" src="assets/cre2/max-a.png" alt="Stories Max Mariola">
+        <img class="sheet" src="assets/cre2/max-b.png" alt="Stories Max Mariola">
+      </div>
+
+      <div class="galblock">
+        <p class="gm">Laura Masi</p>
+        <p class="gd">59.800 visualizzazioni · 18.100 utenti unici · 310 interazioni</p>
+        <p class="ty">Stories · 10 storie</p>
+        <img class="sheet" src="assets/cre2/laura-stories.png" alt="Stories Laura Masi">
+        <p class="ty">Reel · 1 reel · 120 like / 85 commenti / 3 repost / 4 salvataggi</p>
+        <img class="sheet" src="assets/cre2/laura-reel.png" alt="Reel Laura Masi">
+      </div>
+
+      <div class="galblock">
+        <p class="gm">Elettra Lazzerini</p>
+        <p class="gd">29.700 visualizzazioni · 9.000 utenti unici · 480 interazioni · 87% audience 25–54 anni</p>
+        <p class="ty">Stories · 16 storie</p>
+        <img class="sheet" src="assets/cre2/elettra-stories-a.png" alt="Stories Elettra Lazzerini">
+        <img class="sheet" src="assets/cre2/elettra-stories-b.png" alt="Stories Elettra Lazzerini">
+        <img class="sheet" src="assets/cre2/elettra-stories-c.png" alt="Stories Elettra Lazzerini">
+        <p class="ty">Reel · 1 reel · 59 like / 6 commenti / 1 repost / 6 salvataggi</p>
+        <img class="sheet" src="assets/cre2/elettra-reel.png" alt="Reel Elettra Lazzerini">
+      </div>
+
+      <div class="galblock">
+        <p class="gm">Matteo Delvai</p>
+        <p class="gd">9.500 visualizzazioni · 3.400 utenti unici · 130 interazioni</p>
+        <p class="ty">Stories · 8 storie</p>
+        <img class="sheet" src="assets/cre2/matteo-stories.png" alt="Stories Matteo Delvai">
+        <p class="ty">Reel · 1 reel · skip rate 62,9% · 72 like / 6 commenti / 2 repost</p>
+        <img class="sheet" src="assets/cre2/matteo-reel.png" alt="Reel Matteo Delvai">
+      </div>
+
+      <div class="galblock">
+        <p class="gm">Paola Di Giambattista</p>
+        <p class="gd">52 interazioni · presidio istituzionale su LinkedIn</p>
+        <p class="ty">Post LinkedIn · 2 post</p>
+        <p class="role" style="color:rgba(250,250,246,.55);font-size:14px;margin-top:8px">Contenuti pubblicati sulla bacheca LinkedIn a presidio del dibattito istituzionale — nessuna story Instagram.</p>
+      </div>
+    </div>
+
+    <div class="rv" style="margin-top:50px">
+      <h4 class="blk-h">Focus on — il ruolo di ciascun creator</h4>
+      <ul class="focus">
+        <li><b>Max Mariola.</b> Massima penetrazione sul mercato italiano, presidiando un target a forte dominanza maschile (76% uomini), essenziale per il bilanciamento demografico della campagna.</li>
+        <li><b>Laura Masi.</b> Ha introdotto BEAM in una community di utenti esterni altamente profilati, stimolando una conversazione attiva sull'ospitalità d'avanguardia.</li>
+        <li><b>Elettra Lazzerini.</b> Presidio del target aziendale core: l'87% del pubblico in fascia 25–54 anni, con alta quota manageriale femminile (72%).</li>
+        <li><b>Matteo Delvai.</b> Reel con ottima ritenzione (skip rate 62,9%): l'argomento tecnico ha catturato l'interesse mirato degli addetti ai lavori.</li>
+        <li><b>Paola Di Giambattista.</b> Audience LinkedIn con profili executive ad alto potenziale di conversione, a presidio del dibattito istituzionale.</li>
+      </ul>
+    </div>
+
+    <div class="rv" style="margin-top:50px">
+      <h4 class="blk-h">Conclusioni</h4>
+      <div class="concl">
+        <div><b>Penetrazione bilanciata</b>L'attivazione combinata dei 5 creator ha generato oltre 240.000 visualizzazioni, espandendo BEAM sia su scala consumer sia nel nucleo manageriale core.</div>
+        <div><b>Rilevanza &amp; ritenzione</b>Calo minimo delle visualizzazioni durante l'evento e 2.885 tap "indietro" su Max Mariola: il pubblico ha studiato attivamente il palinsesto, non lo ha subìto.</div>
+        <div><b>Efficacia dei video brevi</b>L'algoritmo dei reel ha mostrato una straordinaria capacità di attrazione verso l'esterno, con audience in larga parte non-follower.</div>
+        <div><b>Validazione istituzionale</b>Il presidio verticale su LinkedIn ha confermato la credibilità del summit, assicurando relazioni qualificate con l'ecosistema executive di settore.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer data-screen-label="Chiusura">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <p class="thanks">Lead the <span class="accent">Shift</span>.<br>Insieme.</p>
+        <img src="assets/beam-logo.png" alt="BEAM" style="height:40px;width:auto;margin-top:28px;display:block">
+      </div>
+      <div class="sign">
+        <img src="uploads/brand_white.png" alt="Marketers Accelerator">
+        <p>Report comunicazione BEAM 2026<br>a cura di Marketers Accelerator<br>
+        <a href="https://www.instagram.com/beam_summit/" target="_blank" rel="noopener">@beam_summit</a> · <a href="https://beam.fierabolzano.it/" target="_blank" rel="noopener">beam.fierabolzano.it</a></p>
+      </div>
+    </div>
+    <div class="rule"></div>
+    <p class="legal">BEAM — Hospitality Gamechanger Summit · 19–20 maggio 2026, Bolzano. Documento di rendicontazione a cura di Marketers Accelerator. Fonti: Instagram Insights, Meta Ads Manager, GA4 FieraMesse, MailUp, report creator. Periodo dati: 1 novembre 2025 – 9 giugno 2026 (advertising 1 nov 2025 – 31 mag 2026; variazioni organiche vs 25 marzo – 31 ottobre 2025).</p>
+  </div>
+</footer>
+
+<script>
+  const pr = document.getElementById('progress');
+  const onScroll = () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    pr.style.width = (h>0 ? (window.scrollY/h*100) : 0) + '%';
+  };
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  const io = new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:.08});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
